@@ -11,5 +11,12 @@ if __name__ == "__main__":
         except subprocess.CalledProcessError:
             return False
 
-print(check_output("rm --help", "force"))
-print(check_output("rm --help", "Dorce"))
+command1 = "rm --help"
+command2 = "cat /etc/os-release"
+text1 = "no-preserve-root"
+text2 = "VERSION_CODENAME=JAMMY"
+result = check_output(command1, text1)
+result2 = check_output(command2, text2)
+
+print(result)  #True
+print(result2)   #False
